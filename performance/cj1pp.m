@@ -4,7 +4,7 @@
 % updated on: 27-Sep-00
 %
 
-%% basic data for CP1, P45 lecture 08
+%% basic data for CP1, P15 lecture 08
 cj1data;
 
 %% power required at sea-level

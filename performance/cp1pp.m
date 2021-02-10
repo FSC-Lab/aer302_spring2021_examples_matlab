@@ -7,7 +7,7 @@
 %% basic data for CP1, P16 lecture 08
 cp1data;
 
-%% power required at sea-level P30-32 lecture 08
+%% power required at sea-level P14 lecture 08
 V0 = 60.96;                                     % velocity for minimum power required
 C_L = W / (.5 * rho_s * V0^2 * S);
 C_D = C_D_0 + K*C_L^2;
@@ -36,8 +36,7 @@ h = 6000;
 [T_h,p_h,rho_h] = stdatm(h);
 PAh = PAs * sqrt(rho_h / rho_s);
 for i = 1:200
-    Vh(i) = Vs(i) * sqrt(rho_s / rho_h);
-    Vh(i) = Vs(i);
+    Vh(i) = Vs(i) * sqrt(rho_s / rho_h);                    % Vh(i) = Vs(i);
     qS(i) = 0.5 * rho_h * Vh(i)^2 * S;
     C_L(i) = W / qS(i);
     C_D(i) = C_D_0 + K * C_L(i)^2;
