@@ -41,17 +41,21 @@ Rs = 2 * sqrt(2 / (rho*S)) * 1 / c_t * LsD_sMax * (sqrt(W0) - sqrt(W1));
 R = 2 * sqrt(2 / (rho*S)) * 1 / c_t * LsDMax * (sqrt(W0) - sqrt(W1));
 
 % presentation of results
-plot(V,LD_s,'-',V,LsD_s,'-',V,LD,'--',V,LsD,'--')
+plot(V,LD_s,'-',V,LsD_s,'-',V,LD,'--',V,LsD,'--');
+legend('C_L/C_D sea level', '\sqrt(C_L)/C_D sea level', 'C_L/C_D h', '\sqrt(C_L)/C_D h')
+grid;
 title('C_L to C_D ratio');
 xlabel(' velocity (m/s)');
 ylabel(' ');
-plotprn;
-  
-disp([' the maximum C_L/C_D calcualted from sea level is:       ', num2str(LD_sMax)]);
-disp([' the endurance is:                                       ', num2str(Es), '  (hour)']);
-disp([' the maximum C_L^1/2/C_D calcualted from sea level is:   ' num2str(LsD_sMax)]);
-disp([' the range is:                                           ' num2str(Rs) ' (m)']);
-disp([' the maximum C_L/C_D calcualted from altitude  is:       ', num2str(LDMax)]);
-disp([' the endurance is:                                       ', num2str(E), '  (hour)']);
-disp([' the maximum C_L^1/2/C_D calcualted from altitude  is:   ' num2str(LsDMax)]);
-disp([' the range is:                                           ' num2str(R) ' (m)']);
+h = findobj(gcf,'type','line');
+set(h,'linewidth',2);
+% plotprn;
+%   
+% disp([' the maximum C_L/C_D calcualted from sea level is:       ', num2str(LD_sMax)]);
+% disp([' the endurance is:                                       ', num2str(Es), '  (hour)']);
+% disp([' the maximum C_L^1/2/C_D calcualted from sea level is:   ' num2str(LsD_sMax)]);
+% disp([' the range is:                                           ' num2str(Rs) ' (m)']);
+% disp([' the maximum C_L/C_D calcualted from altitude  is:       ', num2str(LDMax)]);
+% disp([' the endurance is:                                       ', num2str(E), '  (hour)']);
+% disp([' the maximum C_L^1/2/C_D calcualted from altitude  is:   ' num2str(LsDMax)]);
+% disp([' the range is:                                           ' num2str(R) ' (m)']);

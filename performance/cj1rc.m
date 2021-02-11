@@ -55,10 +55,11 @@ Vrcmax_s = Vs(iRCmax_s);
 [gammamax_s,igammamax_s] = max(real(gamma_s));
 Vgammamax_s = Vs(igammamax_s);
 
-% analytical calculation of maximum values
+% analytical calculation of maximum values P10 lecture 09
 TWs = F_s / W;
 Vrcmax_s_calc = sqrt( (WS*TWs)/(3*rho_s*C_D_0) *(1+sqrt(1+12*K*C_D_0 / TWs^2)) );
-% alternative calculation use V* as base
+
+% alternative calculation use V* as base P11 lecture 09
 Vstar = sqrt(2*WS/(rho_s *sqrt(C_D_0/K)));
 z = sqrt(TWs^2 / (12*K*C_D_0) +1);
 Vrcmax_s_calc2 = Vstar * sqrt(1/(2*sqrt(3)))*(sqrt(z+1) + sqrt(z-1));
@@ -71,12 +72,13 @@ Vgammamax_s_calc = sqrt(2*WS/(rho_s *sqrt(C_D_0/K)));
 figure(1)
 subplot(211)
 plot(Vs,PA_s,'-',Vs,PR_s,'--');
+grid;
 title(' Power available and required at Sea-Level');
 xlabel(' velocity (m/s)');
 ylabel('Power (N.m/s)');
 legend('PA','PR');
 subplot(212)
-plot(Vs,RC_s,'-',Vrcmax_s,RCmax_s,'o')
+plot(Vs,RC_s,'-',Vrcmax_s,RCmax_s,'o'); grid;
 axis([0 400 -100 50]);
 title('Rate of Climb at Sea-Level');
 xlabel(' velocity (m/s)');
@@ -87,13 +89,13 @@ set(htype,'linewidth',2);
 
 figure(2)
 subplot(211)
-plot(Vs,PA_s,'-',Vs,PR_s,'--');
+plot(Vs,PA_s,'-',Vs,PR_s,'--'); grid;
 title(' Power available and required at Sea-Level');
 xlabel(' velocity (m/s)');
 ylabel('Power (N.m/s)');
 legend('PA','PR');
 subplot(212)
-plot(Vs,gamma_s,'-',Vgammamax_s,gammamax_s,'o')
+plot(Vs,gamma_s,'-',Vgammamax_s,gammamax_s,'o'); grid;
 axis([0 400 -100 50]);
 title('Climbing Angle at Sea-Level');
 xlabel(' velocity (m/s)');
@@ -103,7 +105,7 @@ set(htype,'linewidth',2);
 % plotdlg;
 
 figure(3)
-plot(Vh_s,Vv_s,'-',Vh_h,Vv_h,'--');
+plot(Vh_s,Vv_s,'-',Vh_h,Vv_h,'--'); grid;
 title(' Hodograph for [CJ1]');
 legend(['T_A =',num2str(F_s)], ['T_A =',num2str(F_h)])
 axis([0 400 0 50]); 
@@ -111,4 +113,4 @@ xlabel(' Vh (m/s)');
 ylabel('Vv (m/s)');
 htype = findobj(gcf,'type','line');
 set(htype,'linewidth',2);
-plotdlg;  
+% plotdlg;  

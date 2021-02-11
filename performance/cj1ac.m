@@ -14,22 +14,23 @@ for i = 1:500
     % calculate thrust load
     TW = F_s * sigma / W;
     % V for RC max
-    Vrcmax = sqrt(WS*TW/(3*rho*C_d_0)*(1+sqrt(1+12*K*C_d_0/TW^2)));
+    Vrcmax = sqrt(WS*TW/(3*rho*C_D_0)*(1+sqrt(1+12*K*C_D_0/TW^2)));
     % max rate of climb
     q_rcmax = 1/2 * rho * Vrcmax^2;
-    RCmax_h(i) = Vrcmax * (TW - q_rcmax * C_d_0/WS - K * WS / q_rcmax);
+    RCmax_h(i) = Vrcmax * (TW - q_rcmax * C_D_0/WS - K * WS / q_rcmax);
 end
     
  
 figure(1) 
-plot(RCmax_h,h,'-')
+plot(RCmax_h,h,'-');
+grid()
 axis([0 45 0 20000])
 title('ceiling');
 xlabel(' RC max (m/s)');
 ylabel(' altitude (m)');
 h = findobj(gcf,'type','line');
 set(h,'linewidth',2);
-plotdlg;  
+% plotdlg;  
 
 
 % plot(h,InvMaxRC,'-')
